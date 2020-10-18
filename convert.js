@@ -135,7 +135,17 @@ export function convert(prog, { tzOffset = 0, copy = [], drop = [], types = [], 
       const conv = flat(cn, seq, typeIds[cn.typeId].name, copyFields, linkSections, sessions, people);
 
       if(drop) {
-        drop.forEach(key => delete conv[key]);
+        drop.forEach(k => {
+          let current = conv;
+          let key = k;
+
+          if(k instanceof Array) {
+            key = k.pop();
+            k.forEach(k => current = conv[k]);
+          }
+
+          delete current[key];
+        });
       }
 
       converted.push(conv);
