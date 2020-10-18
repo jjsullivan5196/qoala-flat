@@ -1,0 +1,10 @@
+{
+  "name": "qoala-flat",
+  "version": "0.1.0",
+  "main": "convert.js",
+  "type": "module",
+  "repository": "https://github.com/jjsullivan5196/qoala-flat",
+  "author": "John Sullivan",
+  "license": "MIT",
+  "private": false
+}
