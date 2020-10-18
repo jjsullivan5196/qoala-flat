@@ -141,7 +141,7 @@ export function convert(prog, { tzOffset = 0, copy = [], drop = [], types = [], 
 
           if(k instanceof Array) {
             key = k.pop();
-            k.forEach(k => current = conv[k]);
+            k.forEach(k => current = current[k]);
           }
 
           delete current[key];
