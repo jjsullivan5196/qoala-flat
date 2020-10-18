@@ -140,6 +140,7 @@ export function convert(prog, { tzOffset = 0, copy = [], drop = [], types = [], 
           let key = k;
 
           if(k instanceof Array) {
+            k = k.slice();
             key = k.pop();
             k.forEach(k => current = current[k]);
           }
