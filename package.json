@@ -2,6 +2,7 @@
   "name": "qoala-flat",
   "version": "0.2.0",
   "main": "snowpack-plugin.js",
+  "description": "Tools for re-publishing SIGCHI QOALA program data",
   "repository": "https://github.com/jjsullivan5196/qoala-flat",
   "author": "John Sullivan",
   "license": "MIT",
