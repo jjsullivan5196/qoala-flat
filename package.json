@@ -1,8 +1,7 @@
 {
   "name": "qoala-flat",
-  "version": "0.1.0",
-  "main": "convert.js",
-  "type": "module",
+  "version": "0.2.0",
+  "main": "snowpack-plugin.js",
   "repository": "https://github.com/jjsullivan5196/qoala-flat",
   "author": "John Sullivan",
   "license": "MIT",

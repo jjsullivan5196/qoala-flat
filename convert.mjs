@@ -60,9 +60,9 @@ function formatAuthor(a) {
 function getAuthors(item, people) {
   const authors = [], affiliation = {};
   
-  item.authors.forEach(a => {
+  item.authors && item.authors.forEach(a => {
     authors.push(formatAuthor(people[a.personId]));
-    a.affiliations.forEach(af => {
+    a.affiliations && a.affiliations.forEach(af => {
       const trunc = af.institution.trim();
       const key = trunc.replace(AFFL_PUNCT, '').toLowerCase();
 
@@ -118,10 +118,16 @@ function flat(item, sequence, track, copyFields, linkSections, sessions, people)
 function getTypeId(prog, tname) {
   const result = prog.contentTypes.find(info => info.name === tname);
 
-  return result.id || undefined;
+  return result ? result.id : undefined;
 }
 
-export function convert(prog, { tzOffset = 0, copy = [], drop = [], types = [], linkSections = undefined } = {}) {
+export default function convert(prog, {
+  tzOffset = 0,
+  copy = [],
+  drop = [],
+  types = [],
+  linkSections = undefined
+} = {}) {
   const
     copyFields = new Set(copy),
     { contents: sessions, info: sessionInfo } = sessionTable(prog, tzOffset),
