@@ -129,6 +129,7 @@ export default function convert(prog, {
   linkSections = undefined
 } = {}) {
   const
+    allAuthors = new Set(),
     copyFields = new Set(copy),
     { contents: sessions, info: sessionInfo } = sessionTable(prog, tzOffset),
     people = peopleTable(prog),
@@ -155,6 +156,7 @@ export default function convert(prog, {
         });
       }
 
+      conv.authors.forEach(a => allAuthors.add(a));
       converted.push(conv);
     }
   });
@@ -168,6 +170,7 @@ export default function convert(prog, {
   return {
     tracks,
     contents: converted,
-    sessions: sessionInfo
+    authors: [...allAuthors],
+    sessions: sessionInfo,
   };
 }
